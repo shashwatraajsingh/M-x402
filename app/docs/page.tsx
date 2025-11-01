@@ -82,8 +82,8 @@ export default function DocsPage() {
                   href="/docs/getting-started"
                   className="group block p-6 rounded-xl border-2 border-zinc-200 hover:border-zinc-900 hover:shadow-lg transition-all no-underline"
                 >
-                  <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-blue-600 transition-colors">
-                    🚀 Getting Started
+                  <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-zinc-700 transition-colors">
+                    ▶ Getting Started
                   </h3>
                   <p className="text-zinc-600 text-sm">
                     Quick start guides for sellers and buyers
@@ -94,8 +94,8 @@ export default function DocsPage() {
                   href="/docs/core-concepts"
                   className="group block p-6 rounded-xl border-2 border-zinc-200 hover:border-zinc-900 hover:shadow-lg transition-all no-underline"
                 >
-                  <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-purple-600 transition-colors">
-                    🧠 Core Concepts
+                  <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-zinc-700 transition-colors">
+                    ◆ Core Concepts
                   </h3>
                   <p className="text-zinc-600 text-sm">
                     HTTP 402 protocol and facilitator architecture
@@ -106,8 +106,8 @@ export default function DocsPage() {
                   href="/docs/api-reference"
                   className="group block p-6 rounded-xl border-2 border-zinc-200 hover:border-zinc-900 hover:shadow-lg transition-all no-underline"
                 >
-                  <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-green-600 transition-colors">
-                    📚 API Reference
+                  <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-zinc-700 transition-colors">
+                    ■ API Reference
                   </h3>
                   <p className="text-zinc-600 text-sm">
                     Complete API documentation and types
@@ -118,8 +118,8 @@ export default function DocsPage() {
                   href="/docs/examples"
                   className="group block p-6 rounded-xl border-2 border-zinc-200 hover:border-zinc-900 hover:shadow-lg transition-all no-underline"
                 >
-                  <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-orange-600 transition-colors">
-                    💡 Examples
+                  <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-zinc-700 transition-colors">
+                    ◉ Examples
                   </h3>
                   <p className="text-zinc-600 text-sm">
                     Code examples and real-world use cases
@@ -133,7 +133,7 @@ export default function DocsPage() {
                   className="group block p-6 rounded-xl border-2 border-zinc-200 hover:border-zinc-900 hover:shadow-lg transition-all no-underline"
                 >
                   <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-zinc-700 transition-colors">
-                    💻 GitHub
+                    ◈ GitHub
                   </h3>
                   <p className="text-zinc-600 text-sm">
                     View source code and contribute
@@ -141,16 +141,14 @@ export default function DocsPage() {
                 </a>
                 
                 <Link
-                  href="https://www.npmjs.com/package/monad-x402"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/docs/guides/ai-ide-integration"
                   className="group block p-6 rounded-xl border-2 border-zinc-200 hover:border-zinc-900 hover:shadow-lg transition-all no-underline"
                 >
-                  <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-red-600 transition-colors">
-                    📦 NPM Package
+                  <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-zinc-700 transition-colors">
+                    ● Integration through AI
                   </h3>
                   <p className="text-zinc-600 text-sm">
-                    Install and view package details
+                    Use Cursor IDE and AI assistants to integrate
                   </p>
                 </Link>
               </div>

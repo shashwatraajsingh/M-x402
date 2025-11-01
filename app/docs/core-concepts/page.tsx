@@ -66,8 +66,8 @@ export default function CoreConceptsPage() {
             {/* HTTP 402 Protocol */}
             <div className="bg-white rounded-2xl shadow-sm border border-zinc-200 p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-2xl">
-                  🔐
+                <div className="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center text-white text-2xl font-bold">
+                  ◆
                 </div>
                 <h2 className="text-2xl font-bold text-zinc-900">HTTP 402 Protocol</h2>
               </div>
@@ -81,8 +81,8 @@ export default function CoreConceptsPage() {
             {/* Facilitator */}
             <div className="bg-white rounded-2xl shadow-sm border border-zinc-200 p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center text-2xl">
-                  ⚡
+                <div className="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center text-white text-2xl font-bold">
+                  ▶
                 </div>
                 <h2 className="text-2xl font-bold text-zinc-900">Facilitator Service</h2>
               </div>

@@ -75,8 +75,8 @@ export default function GettingStartedPage() {
             {/* Sellers Guide */}
             <div className="bg-white rounded-2xl shadow-sm border border-zinc-200 p-8">
               <div className="mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center text-2xl mb-4">
-                  💰
+                <div className="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center text-white text-2xl font-bold mb-4">
+                  $
                 </div>
                 <h2 className="text-2xl font-bold text-zinc-900 mb-2">For API Sellers</h2>
                 <p className="text-zinc-600">Monetize your APIs with Monad payments</p>
@@ -96,8 +96,8 @@ export default function GettingStartedPage() {
             {/* Buyers Guide */}
             <div className="bg-white rounded-2xl shadow-sm border border-zinc-200 p-8">
               <div className="mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-xl flex items-center justify-center text-2xl mb-4">
-                  🛒
+                <div className="w-12 h-12 bg-zinc-900 rounded-xl flex items-center justify-center text-white text-2xl font-bold mb-4">
+                  ◉
                 </div>
                 <h2 className="text-2xl font-bold text-zinc-900 mb-2">For API Buyers</h2>
                 <p className="text-zinc-600">Consume paid APIs with automatic payments</p>
