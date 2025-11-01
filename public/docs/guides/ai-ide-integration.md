@@ -37,12 +37,12 @@ paymentMiddleware(
 
 RouteConfig: { price: string; network?: string; config?: { description?: string } }
 
-Example: Protect '[YOUR_API_ROUTE]' with price: '1000000', network: 'monad-testnet'
+Example: Protect '[YOUR_API_ROUTE]' with price: '1000000000000000', network: 'testnet'
 Matcher: ['[YOUR_API_ROUTE_PATTERN]']
 
 Leave placeholder comments for user to specify:
 - API route to protect
-- Price in octas
+- Price in wei (1 MON = 10^18 wei)
 - Matcher pattern
 
 Do NOT create new API routes - only protect existing ones with middleware.
@@ -57,13 +57,13 @@ STEP 1 - Install:
 npm install monad-x402
 
 STEP 2 - Environment Variables (.env.local):
-NEXT_PUBLIC_APTOS_PRIVATE_KEY=0x[your_private_key]
+NEXT_PUBLIC_MONAD_PRIVATE_KEY=0x[your_private_key]
 
 STEP 3 - Client Component (app/components/PaymentClient.tsx):
 import { x402axios } from 'monad-x402'
 
 const response = await x402axios.get(apiUrl, { 
-  privateKey: process.env.NEXT_PUBLIC_APTOS_PRIVATE_KEY 
+  privateKey: process.env.NEXT_PUBLIC_MONAD_PRIVATE_KEY 
 })
 
 Response:
@@ -71,7 +71,7 @@ Response:
 - response.paymentInfo?.transactionHash
 - response.paymentInfo?.settled
 
-Include: Loading state, error handling, Monad explorer link
+Include: Loading state, error handling, Monad testnet explorer link
 ```
 
 ### Quick Understanding Prompt
@@ -84,7 +84,7 @@ I'm integrating Monad x402, a payment protocol SDK for monetizing APIs with bloc
 The SDK provides:
 - paymentMiddleware() for protecting Next.js API routes (server-side)
 - x402axios for consuming protected APIs with automatic payment handling (client-side)
-- Built on Monad blockchain with <3s settlement
+- Built on Monad blockchain with 1-second finality and 10,000 TPS
 
 Key concepts:
 1. Server uses middleware to return 402 responses with payment requirements
@@ -105,7 +105,7 @@ Docs: https://monad-x402.vercel.app/docs
 ```
 Help me protect my Next.js API routes using Monad x402 middleware. I want to:
 - Configure the middleware in middleware.ts
-- Set price per endpoint (e.g., /api/premium/weather costs 1000000 octas)
+- Set price per endpoint (e.g., /api/premium/weather costs 1000000000000000 wei = 0.001 MON)
 - Use environment variables for recipient address and facilitator URL
 - Ensure the middleware only runs on specific routes
 
@@ -179,7 +179,7 @@ When asking Cursor for help, use these commands:
 **For middleware setup:**
 ```
 @middleware.ts Show me how to add a new protected route at /api/premium/analytics 
-that costs 5000000 octas
+that costs 5000000000000000 wei (0.005 MON)
 ```
 
 **For client integration:**
@@ -212,7 +212,7 @@ Write comments describing what you need, then let Copilot generate:
 
 ```typescript
 // Create x402 middleware that protects /api/premium/* routes
-// Charge 1000000 octas per request
+// Charge 1000000000000000 wei (0.001 MON) per request
 // Use PAYMENT_RECIPIENT_ADDRESS from env
 // Use public facilitator at https://monad-x402.vercel.app/api/facilitator
 

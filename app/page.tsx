@@ -50,7 +50,7 @@ export default function LandingPage() {
             </div>
             <div className="flex items-center gap-4">
               <a
-                href="hhttps://github.com/shashwatraajsingh/M-x402"
+                href="https://github.com/shashwatraajsingh/M-x402"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
