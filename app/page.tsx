@@ -17,7 +17,7 @@ export default function LandingPage() {
   }, []);
 
   const displayDownloads = npmStats 
-    ? (npmStats.downloads < 200 ? '200+' : npmStats.downloads.toLocaleString())
+    ? (npmStats.downloads < 200 ? '20+' : npmStats.downloads.toLocaleString())
     : '200+';
 
   return (
@@ -96,14 +96,14 @@ export default function LandingPage() {
             <div className="flex items-center justify-center gap-4 pt-6">
               <div className="group relative">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-zinc-600 to-zinc-400 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-200" />
-                <button className="relative px-8 py-4 bg-zinc-900 text-white rounded-xl font-semibold hover:bg-zinc-800 transition-all duration-200 flex items-center gap-2">
+                <a href="/docs" className="relative px-8 py-4 bg-zinc-900 text-white rounded-xl font-semibold hover:bg-zinc-800 transition-all duration-200 flex items-center gap-2">
                   <span>Get Started</span>
                   <span>→</span>
-                </button>
+                </a>
               </div>
-              <button className="px-8 py-4 bg-white border-2 border-zinc-200 text-zinc-900 rounded-xl font-semibold hover:border-zinc-300 hover:bg-zinc-50 transition-all duration-200">
+              <a href="/docs" className="px-8 py-4 bg-white border-2 border-zinc-200 text-zinc-900 rounded-xl font-semibold hover:border-zinc-300 hover:bg-zinc-50 transition-all duration-200 inline-block">
                 View Docs
-              </button>
+              </a>
             </div>
 
             {/* Install Command */}
@@ -341,12 +341,12 @@ console.log(result.data);`}
                 Join the Monad ecosystem. 10,000 TPS. 1-second finality. 100x cheaper than Ethereum.
               </p>
               <div className="flex items-center justify-center gap-4">
-                <button className="px-8 py-4 bg-white text-zinc-900 rounded-xl font-semibold hover:bg-zinc-100 transition-all duration-200 shadow-xl">
+                <a href="/docs" className="px-8 py-4 bg-white text-zinc-900 rounded-xl font-semibold hover:bg-zinc-100 transition-all duration-200 shadow-xl inline-block">
                   Get Started Now
-                </button>
-                <button className="px-8 py-4 bg-zinc-800 text-white rounded-xl font-semibold hover:bg-zinc-700 transition-all duration-200 border border-zinc-700">
+                </a>
+                <a href="/docs" className="px-8 py-4 bg-zinc-800 text-white rounded-xl font-semibold hover:bg-zinc-700 transition-all duration-200 border border-zinc-700 inline-block">
                   Read Documentation
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -371,9 +371,9 @@ console.log(result.data);`}
             <div>
               <h3 className="font-semibold text-zinc-900 mb-4">Resources</h3>
               <ul className="space-y-2 text-zinc-600">
-                <li><a href="#" className="hover:text-zinc-900 transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-zinc-900 transition-colors">Examples</a></li>
-                <li><a href="#" className="hover:text-zinc-900 transition-colors">API Reference</a></li>
+                <li><a href="/docs" className="hover:text-zinc-900 transition-colors">Documentation</a></li>
+                <li><a href="/docs/examples" className="hover:text-zinc-900 transition-colors">Examples</a></li>
+                <li><a href="/docs/api-reference" className="hover:text-zinc-900 transition-colors">API Reference</a></li>
               </ul>
             </div>
             <div>

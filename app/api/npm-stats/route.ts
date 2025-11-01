@@ -52,7 +52,7 @@ export async function GET() {
       }
     );
     
-    let version = '1.0.1';
+    let version = '1.0.0';
     let created = new Date().toISOString();
     let modified = new Date().toISOString();
     
@@ -74,8 +74,8 @@ export async function GET() {
     
     // Return fallback data
     return NextResponse.json({
-      downloads: 200,
-      version: '1.0.1',
+      downloads: 20,
+      version: '1.0.0',
       created: new Date().toISOString(),
       modified: new Date().toISOString(),
     });
