@@ -151,6 +151,30 @@ export default function DocsPage() {
                     Use Cursor IDE and AI assistants to integrate
                   </p>
                 </Link>
+                
+                <Link
+                  href="/docs/guides/ai-crawler-monetization"
+                  className="group block p-6 rounded-xl border-2 border-zinc-200 hover:border-zinc-900 hover:shadow-lg transition-all no-underline"
+                >
+                  <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-zinc-700 transition-colors">
+                    $ AI Crawler Monetization
+                  </h3>
+                  <p className="text-zinc-600 text-sm">
+                    Get paid when AI crawls your website
+                  </p>
+                </Link>
+                
+                <Link
+                  href="/docs/guides/universal-bot-protection"
+                  className="group block p-6 rounded-xl border-2 border-zinc-200 hover:border-zinc-900 hover:shadow-lg transition-all no-underline"
+                >
+                  <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-zinc-700 transition-colors">
+                    ◈ Universal Bot Protection
+                  </h3>
+                  <p className="text-zinc-600 text-sm">
+                    Block ALL bots without payment
+                  </p>
+                </Link>
               </div>
 
               {/* Main Documentation Content */}

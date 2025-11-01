@@ -15,6 +15,8 @@ MonX402 is a TypeScript SDK implementing the HTTP 402 Payment Required standard 
 - **Autonomous Payments** - Designed for AI agents and machine-to-machine transactions
 - **Axios-Compatible Client** - Drop-in replacement for standard HTTP clients
 - **Client-Side Signing** - Private keys never leave the user's machine
+- **AI Crawler Monetization** - Get paid when AI companies crawl your website
+- **Universal Bot Protection** - Block ALL bots (scrapers, crawlers, etc.) without payment
 - **Production Ready** - Comprehensive error handling and transaction monitoring
 
 ## Use Cases
@@ -92,6 +94,55 @@ export async function GET() {
   });
 }
 ```
+
+### AI Crawler Monetization
+
+Get paid when AI companies crawl your website:
+
+```typescript
+// middleware.ts
+import { aiCrawlerMiddleware } from 'monad-x402';
+
+export const middleware = aiCrawlerMiddleware({
+  enabled: true,
+  price: '1000000000000000',  // 0.001 MON per page
+  recipientAddress: process.env.PAYMENT_RECIPIENT_ADDRESS,
+  network: 'testnet'
+});
+
+export const config = {
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']  
+};
+```
+
+Detects and charges AI crawlers (GPTBot, Claude, Google-Extended, etc.) while allowing regular users free access.
+
+### Universal Bot Protection
+
+Block **ALL bots** - scrapers, crawlers, headless browsers, and automated tools:
+
+```typescript
+// middleware.ts
+import { blockAllBotsExceptSEO } from 'monad-x402';
+
+// Allow search engines for SEO, charge everything else
+export const middleware = blockAllBotsExceptSEO(
+  process.env.PAYMENT_RECIPIENT_ADDRESS,
+  '1000000000000000'  // 0.001 MON
+);
+
+export const config = {
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']  
+};
+```
+
+Detects and blocks:
+- **Search engines** - Googlebot, Bingbot, Baidu, Yandex
+- **AI crawlers** - GPT, Claude, Gemini, Perplexity
+- **Scrapers** - Scrapy, cURL, Wget, Python Requests
+- **SEO tools** - Ahrefs, Semrush, Screaming Frog
+- **Headless browsers** - Puppeteer, Playwright, Selenium
+- **Any automated tool** - Pattern + behavioral detection
 
 ## Architecture
 

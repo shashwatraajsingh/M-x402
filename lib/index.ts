@@ -61,6 +61,32 @@ export type {
 export { paymentMiddleware } from "./x402-middleware";
 
 /**
+ * AI Crawler monetization - Charge AI bots for accessing your content
+ * @recommended Use this to get paid when AI crawlers access your website
+ */
+export {
+  aiCrawlerMiddleware,
+  blockAICrawlers,
+  allowSpecificCrawlers,
+  isAICrawler,
+  getAICrawlerName,
+} from "./ai-crawler-middleware";
+export type { AICrawlerConfig } from "./ai-crawler-middleware";
+
+/**
+ * Universal Bot Protection - Block ALL bots without payment
+ * @recommended Use this to monetize all bot traffic including scrapers and crawlers
+ */
+export {
+  botProtectionMiddleware,
+  blockAllBots,
+  blockAllBotsExceptSEO,
+  isBot,
+  getBotType,
+} from "./bot-protection-middleware";
+export type { BotProtectionConfig } from "./bot-protection-middleware";
+
+/**
  * Configuration types for sellers
  */
 export type { RouteConfig, FacilitatorConfig } from "./x402-types";
