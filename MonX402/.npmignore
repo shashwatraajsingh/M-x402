@@ -1,0 +1,38 @@
+# Development files (excluded from npm package)
+app/
+lib/
+scripts/
+examples/
+tests/
+docs/
+specs/
+
+# Config files
+tsconfig.json
+tsconfig.sdk.json
+.env
+.env.example
+.env.local
+.env.*
+
+# Next.js
+.next/
+next-env.d.ts
+next.config.ts
+postcss.config.mjs
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Misc
+node_modules/
+*.log
+.DS_Store
+

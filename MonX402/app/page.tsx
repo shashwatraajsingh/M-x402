@@ -1,0 +1,410 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { BGPattern } from "./components/BGPattern";
+
+export default function LandingPage() {
+  const [npmStats, setNpmStats] = useState<{
+    downloads: number;
+    version: string;
+  } | null>(null);
+
+  useEffect(() => {
+    fetch('/api/npm-stats')
+      .then(res => res.json())
+      .then(data => setNpmStats(data))
+      .catch(err => console.error('Failed to fetch NPM stats:', err));
+  }, []);
+
+  const displayDownloads = npmStats 
+    ? (npmStats.downloads < 200 ? '200+' : npmStats.downloads.toLocaleString())
+    : '200+';
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-zinc-50 via-white to-zinc-100 relative overflow-hidden">
+      {/* Background Pattern */}
+      <BGPattern 
+        variant="grid" 
+        mask="fade-edges"
+        size={32}
+        fill="#18181b15"
+      />
+      
+      {/* Animated gradient orbs */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-100/30 to-purple-100/30 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-green-100/20 to-blue-100/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      
+      <div className="relative">
+        {/* Navigation */}
+        <nav className="container mx-auto px-6 pt-8 max-w-6xl">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-zinc-900 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                M
+              </div>
+              <span className="font-bold text-xl text-zinc-900" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                monad-x402
+              </span>
+            </div>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://github.com/shashwatraajsingh/MonX402"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.npmjs.com/package/monad-x402"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg hover:bg-zinc-800 transition-colors"
+              >
+                NPM Package
+              </a>
+            </div>
+          </div>
+        </nav>
+
+        {/* Hero Section */}
+        <div className="container mx-auto px-6 pt-24 pb-16 max-w-6xl">
+          <div className="text-center space-y-6">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-zinc-100 to-zinc-50 border border-zinc-200 backdrop-blur-sm">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              <span className="text-sm font-medium text-zinc-700">HTTP 402 Payment Protocol</span>
+            </div>
+
+            {/* Headline */}
+            <h1 className="text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.1] font-black" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+              <span className="bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-600 bg-clip-text text-transparent">
+                Monetize APIs
+              </span>
+              <br />
+              <span className="text-zinc-900">with Monad</span>
+            </h1>
+
+            {/* Tagline */}
+            <p className="text-xl md:text-2xl text-zinc-600 max-w-3xl mx-auto leading-relaxed font-light">
+              Zero-config blockchain payments for Next.js. Just add middleware, your APIs are monetized.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex items-center justify-center gap-4 pt-6">
+              <div className="group relative">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-zinc-600 to-zinc-400 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-200" />
+                <button className="relative px-8 py-4 bg-zinc-900 text-white rounded-xl font-semibold hover:bg-zinc-800 transition-all duration-200 flex items-center gap-2">
+                  <span>Get Started</span>
+                  <span>→</span>
+                </button>
+              </div>
+              <button className="px-8 py-4 bg-white border-2 border-zinc-200 text-zinc-900 rounded-xl font-semibold hover:border-zinc-300 hover:bg-zinc-50 transition-all duration-200">
+                View Docs
+              </button>
+            </div>
+
+            {/* Install Command */}
+            <div className="pt-8">
+              <div className="inline-flex items-center gap-3 px-6 py-3 bg-zinc-900/95 backdrop-blur-sm rounded-xl border border-zinc-800 shadow-2xl">
+                <span className="text-zinc-500 text-sm">$</span>
+                <code className="font-mono text-sm text-zinc-100">npm install monad-x402</code>
+                <button className="ml-2 px-3 py-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs rounded-md transition-colors">
+                  Copy
+                </button>
+              </div>
+            </div>
+
+            {/* Stats */}
+            <div className="flex items-center justify-center gap-12 pt-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-zinc-900" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                  {displayDownloads}
+                </div>
+                <div className="text-sm text-zinc-500 mt-1">Weekly Downloads</div>
+              </div>
+              <div className="w-px h-12 bg-zinc-200" />
+              {npmStats && (
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-zinc-900" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                    v{npmStats.version}
+                  </div>
+                  <div className="text-sm text-zinc-500 mt-1">Latest Version</div>
+                </div>
+              )}
+              <div className="w-px h-12 bg-zinc-200" />
+              <div className="text-center">
+                <div className="text-3xl font-bold text-zinc-900" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                  &lt;50ms
+                </div>
+                <div className="text-sm text-zinc-500 mt-1">Verification Time</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Features Section */}
+        <div className="container mx-auto px-6 py-24 max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+              Why monad-x402?
+            </h2>
+            <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
+              The fastest way to add blockchain payments to your Next.js APIs
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Feature 1 */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative p-8 rounded-2xl border-2 border-zinc-200 bg-white hover:border-zinc-300 transition-all duration-300">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-zinc-900 to-zinc-700 flex items-center justify-center mb-6 text-3xl shadow-lg">
+                  💻
+                </div>
+                <h3 className="text-xl font-bold text-zinc-900 mb-3" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                  Zero Payment Logic
+                </h3>
+                <p className="text-zinc-600 leading-relaxed">
+                  Configure middleware once. Your API routes stay clean—no payment code needed.
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative p-8 rounded-2xl border-2 border-zinc-200 bg-white hover:border-zinc-300 transition-all duration-300">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-zinc-900 to-zinc-700 flex items-center justify-center mb-6 text-3xl shadow-lg">
+                  ⚡
+                </div>
+                <h3 className="text-xl font-bold text-zinc-900 mb-3" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                  Lightning Fast
+                </h3>
+                <p className="text-zinc-600 leading-relaxed">
+                  Monad blockchain. Verification in &lt;50ms, settlement in 1-3 seconds.
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative p-8 rounded-2xl border-2 border-zinc-200 bg-white hover:border-zinc-300 transition-all duration-300">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-zinc-900 to-zinc-700 flex items-center justify-center mb-6 text-3xl shadow-lg">
+                  🛡️
+                </div>
+                <h3 className="text-xl font-bold text-zinc-900 mb-3" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                  x402 Standard
+                </h3>
+                <p className="text-zinc-600 leading-relaxed">
+                  Follows Coinbase x402 spec for machine-to-machine micropayments.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Code Example Section */}
+        <div className="container mx-auto px-6 pb-24 max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+              Three steps to monetize
+            </h2>
+            <p className="text-lg text-zinc-600">
+              Get started in under 5 minutes
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Step 1 */}
+            <div className="rounded-xl border border-zinc-200 bg-white/50 backdrop-blur-sm flex flex-col">
+              <div className="p-5 border-b border-zinc-200 bg-zinc-50/50">
+                <div className="flex items-center gap-3">
+                  <div className="w-7 h-7 rounded-full bg-zinc-900 text-white flex items-center justify-center text-sm font-semibold">
+                    1
+                  </div>
+                  <h3 className="font-semibold text-zinc-900">
+                    Configure middleware
+                  </h3>
+                </div>
+              </div>
+              <div className="p-5 flex-1 flex flex-col">
+                <div className="overflow-x-auto rounded-lg bg-zinc-900">
+                  <pre className="text-zinc-100 p-3 text-[10px] leading-[1.4] font-mono">
+{`// middleware.ts
+import { paymentMiddleware }
+  from 'monad-x402';
+
+export const middleware =
+  paymentMiddleware(
+    process.env
+      .PAYMENT_RECIPIENT_ADDRESS!,
+    {
+      '/api/premium/weather': {
+        price: '1000000',
+        network: 'testnet',
+      }
+    },
+    { url: process.env
+        .FACILITATOR_URL! }
+  );`}
+                  </pre>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="rounded-xl border border-zinc-200 bg-white/50 backdrop-blur-sm flex flex-col">
+              <div className="p-5 border-b border-zinc-200 bg-zinc-50/50">
+                <div className="flex items-center gap-3">
+                  <div className="w-7 h-7 rounded-full bg-zinc-900 text-white flex items-center justify-center text-sm font-semibold">
+                    2
+                  </div>
+                  <h3 className="font-semibold text-zinc-900">
+                    Write your API route
+                  </h3>
+                </div>
+              </div>
+              <div className="p-5 flex-1 flex flex-col">
+                <div className="overflow-x-auto rounded-lg bg-zinc-900">
+                  <pre className="text-zinc-100 p-3 text-[10px] leading-[1.4] font-mono">
+{`// route.ts
+import { NextResponse }
+  from 'next/server';
+
+export async function GET() {
+  // Payment already verified!
+
+  return NextResponse.json({
+    temperature: 72,
+    condition: 'Sunny',
+    premium: true
+  });
+}`}
+                  </pre>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="rounded-xl border border-zinc-200 bg-white/50 backdrop-blur-sm flex flex-col">
+              <div className="p-5 border-b border-zinc-200 bg-zinc-50/50">
+                <div className="flex items-center gap-3">
+                  <div className="w-7 h-7 rounded-full bg-zinc-900 text-white flex items-center justify-center text-sm font-semibold">
+                    3
+                  </div>
+                  <h3 className="font-semibold text-zinc-900">
+                    Client pays automatically
+                  </h3>
+                </div>
+              </div>
+              <div className="p-5 flex-1 flex flex-col">
+                <div className="overflow-x-auto rounded-lg bg-zinc-900">
+                  <pre className="text-zinc-100 p-3 text-[10px] leading-[1.4] font-mono">
+{`// client.ts
+import { x402axios }
+  from 'monad-x402';
+
+const result = await x402axios.get(
+  'https://api.example.com/premium/weather',
+  {
+    privateKey: '0x...'
+  }
+);
+
+// Done! Payment handled
+console.log(result.data);`}
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="container mx-auto px-6 py-24 max-w-6xl">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 p-12 md:p-20">
+            <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
+            <div className="relative text-center">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                Ready to monetize your APIs?
+              </h2>
+              <p className="text-xl text-zinc-300 mb-10 max-w-2xl mx-auto">
+                Join developers building the future of machine-to-machine payments on Monad
+              </p>
+              <div className="flex items-center justify-center gap-4">
+                <button className="px-8 py-4 bg-white text-zinc-900 rounded-xl font-semibold hover:bg-zinc-100 transition-all duration-200 shadow-xl">
+                  Get Started Now
+                </button>
+                <button className="px-8 py-4 bg-zinc-800 text-white rounded-xl font-semibold hover:bg-zinc-700 transition-all duration-200 border border-zinc-700">
+                  Read Documentation
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <footer className="container mx-auto px-6 py-16 max-w-6xl border-t border-zinc-200">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 bg-zinc-900 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                  M
+                </div>
+                <span className="font-bold text-xl text-zinc-900" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                  monad-x402
+                </span>
+              </div>
+              <p className="text-zinc-600 max-w-sm">
+                HTTP 402 Payment Protocol for Monad blockchain. Built for developers who want to monetize APIs without the complexity.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-zinc-900 mb-4">Resources</h3>
+              <ul className="space-y-2 text-zinc-600">
+                <li><a href="#" className="hover:text-zinc-900 transition-colors">Documentation</a></li>
+                <li><a href="#" className="hover:text-zinc-900 transition-colors">Examples</a></li>
+                <li><a href="#" className="hover:text-zinc-900 transition-colors">API Reference</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-zinc-900 mb-4">Community</h3>
+              <ul className="space-y-2 text-zinc-600">
+                <li>
+                  <a 
+                    href="https://github.com/shashwatraajsingh/MonX402" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-zinc-900 transition-colors"
+                  >
+                    GitHub
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://www.npmjs.com/package/monad-x402" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-zinc-900 transition-colors"
+                  >
+                    NPM
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="pt-8 border-t border-zinc-200 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-zinc-500">
+              © 2025 monad-x402. Built for the Monad ecosystem.
+            </p>
+            <p className="text-sm text-zinc-500">
+              Made with ⚡ by <span className="font-semibold text-zinc-700">Shashwat Raj Singh</span>
+            </p>
+          </div>
+        </footer>
+      </div>
+    </div>
+  );
+}

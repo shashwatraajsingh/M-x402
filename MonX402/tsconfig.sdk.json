@@ -1,0 +1,37 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./lib",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "module": "ES2022",
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "noEmit": false,
+    "emitDeclarationOnly": false
+  },
+  "include": ["lib/**/*"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "app",
+    "src",
+    "scripts",
+    "examples",
+    "tests",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ]
+}
+
