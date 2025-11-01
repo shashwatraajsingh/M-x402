@@ -67,11 +67,11 @@ import { paymentMiddleware } from 'monad-x402';
 export const middleware = paymentMiddleware(
   process.env.PAYMENT_RECIPIENT_ADDRESS!, // Your Monad wallet address
   {
-    '/api/premium/weather': {
+    '/api/premium/crypto-prices': {
       price: '1000000000000000',  // 0.001 MON in wei
       network: 'testnet',
       config: {
-        description: 'Premium weather data access'
+        description: 'Live crypto price data access'
       }
     }
   },
@@ -86,14 +86,20 @@ export const config = {
 ```
 
 ```typescript
-// app/api/premium/weather/route.ts
+// app/api/premium/crypto-prices/route.ts
 import { NextResponse } from 'next/server';
 
 export async function GET() {
   // This route is now payment-protected!
+  const response = await fetch(
+    'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd'
+  );
+  const data = await response.json();
+  
   return NextResponse.json({
-    temperature: 72,
-    condition: 'sunny'
+    bitcoin: data.bitcoin.usd,
+    ethereum: data.ethereum.usd,
+    premium: true
   });
 }
 ```

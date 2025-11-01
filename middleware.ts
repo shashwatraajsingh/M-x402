@@ -12,11 +12,11 @@ import { paymentMiddleware } from "./lib/x402-middleware";
 export const middleware = paymentMiddleware(
   process.env.PAYMENT_RECIPIENT_ADDRESS!,
   {
-    "/api/protected/weather": {
+    "/api/protected/crypto-prices": {
       price: "1000000000000000",   // 0.001 MON in wei (1 MON = 10^18 wei)
       network: process.env.MONAD_NETWORK!,
       config: {
-        description: "Access to weather data API (0.001 MON)",
+        description: "Access to live crypto price API (0.001 MON)",
       },
     },
   },

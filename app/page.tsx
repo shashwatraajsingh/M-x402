@@ -21,18 +21,20 @@ export default function LandingPage() {
     : '200+';
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-zinc-50 via-white to-zinc-100 relative overflow-hidden">
-      {/* Background Pattern */}
-      <BGPattern 
-        variant="grid" 
-        mask="fade-edges"
-        size={32}
-        fill="#18181b15"
-      />
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Diagonal Stripes Background - Fixed at the back */}
+      <div className="fixed inset-0 bg-gradient-to-br from-zinc-50 via-white to-zinc-100 -z-10">
+        <BGPattern 
+          variant="diagonal-stripes" 
+          mask="fade-edges"
+          size={32}
+          fill="#18181b15"
+        />
+      </div>
       
       {/* Animated gradient orbs */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-100/30 to-purple-100/30 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-green-100/20 to-blue-100/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-100/30 to-purple-100/30 rounded-full blur-3xl animate-pulse -z-10" />
+      <div className="fixed bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-green-100/20 to-blue-100/20 rounded-full blur-3xl animate-pulse -z-10" style={{ animationDelay: '1s' }} />
       
       <div className="relative">
         {/* Navigation */}
@@ -182,7 +184,7 @@ export default function LandingPage() {
                   Lightning Fast
                 </h3>
                 <p className="text-zinc-600 leading-relaxed">
-                  Monad blockchain. Verification in &lt;50ms, settlement in 1-3 seconds.
+                Hundreds of times faster than &lt;  current Ethereum
                 </p>
               </div>
             </div>
@@ -241,7 +243,7 @@ export const middleware =
     process.env
       .PAYMENT_RECIPIENT_ADDRESS!,
     {
-      '/api/premium/weather': {
+      '/api/premium/crypto-signals': {
         price: '1000000',
         network: 'testnet',
       }
@@ -275,10 +277,15 @@ import { NextResponse }
 
 export async function GET() {
   // Payment already verified!
+  
+  const response = await fetch(
+    'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd'
+  );
+  const data = await response.json();
 
   return NextResponse.json({
-    temperature: 72,
-    condition: 'Sunny',
+    bitcoin: data.bitcoin.usd,
+    ethereum: data.ethereum.usd,
     premium: true
   });
 }`}
@@ -307,7 +314,7 @@ import { x402axios }
   from 'monad-x402';
 
 const result = await x402axios.get(
-  'https://api.example.com/premium/weather',
+  'https://api.example.com/premium/crypto-signals',
   {
     privateKey: '0x...'
   }
