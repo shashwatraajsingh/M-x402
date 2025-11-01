@@ -84,12 +84,12 @@ export default function LandingPage() {
                 Monetize APIs
               </span>
               <br />
-              <span className="text-zinc-900">with Monad</span>
+              <span className="text-zinc-900">& Block AI Crawlers</span>
             </h1>
 
             {/* Tagline */}
             <p className="text-xl md:text-2xl text-zinc-600 max-w-3xl mx-auto leading-relaxed font-light">
-              Lightning-fast blockchain payments on Monad. 1-second finality, 10,000 TPS, and 100x cheaper than Ethereum.
+              Lightning-fast blockchain payments on Monad. Charge AI companies when they crawl your site. 1-second finality, 10,000 TPS.
             </p>
 
             {/* CTA Buttons */}
@@ -204,6 +204,119 @@ export default function LandingPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* New Features Section */}
+        <div className="container mx-auto px-6 py-24 max-w-6xl">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-green-100 to-emerald-50 border border-green-200 mb-6">
+              <span className="text-sm font-semibold text-green-700">NEW</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+              Monetize Bot Traffic
+            </h2>
+            <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
+              Get paid when AI companies and bots crawl your website. No more free data scraping.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* AI Crawler Monetization */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative p-8 rounded-2xl border-2 border-zinc-200 bg-white hover:border-zinc-300 transition-all duration-300 h-full flex flex-col">
+                <div className="w-14 h-14 rounded-xl bg-zinc-900 flex items-center justify-center mb-6 text-white text-2xl font-bold shadow-lg">
+                  $
+                </div>
+                <h3 className="text-2xl font-bold text-zinc-900 mb-3" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                  AI Crawler Monetization
+                </h3>
+                <p className="text-zinc-600 leading-relaxed mb-6 flex-1">
+                  Detect when AI companies (OpenAI, Anthropic, Google, Perplexity) crawl your website and require payment before serving content. Get compensated when AI trains on your data.
+                </p>
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center gap-2 text-sm text-zinc-600">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                    <span>Detects GPTBot, Claude, Gemini, and 10+ AI crawlers</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-zinc-600">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                    <span>Payments settle in ~1 second on Monad</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-zinc-600">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                    <span>Whitelist specific crawlers for SEO</span>
+                  </div>
+                </div>
+                <a 
+                  href="/docs/guides/ai-crawler-monetization" 
+                  className="inline-flex items-center gap-2 text-zinc-900 font-semibold hover:gap-3 transition-all"
+                >
+                  <span>Learn more</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Universal Bot Protection */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative p-8 rounded-2xl border-2 border-zinc-200 bg-white hover:border-zinc-300 transition-all duration-300 h-full flex flex-col">
+                <div className="w-14 h-14 rounded-xl bg-zinc-900 flex items-center justify-center mb-6 text-white text-2xl font-bold shadow-lg">
+                  ◈
+                </div>
+                <h3 className="text-2xl font-bold text-zinc-900 mb-3" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                  Universal Bot Protection
+                </h3>
+                <p className="text-zinc-600 leading-relaxed mb-6 flex-1">
+                  Block ALL bots - scrapers, crawlers, headless browsers, SEO tools - and require payment. Protect your content from unauthorized automated access while maintaining SEO.
+                </p>
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center gap-2 text-sm text-zinc-600">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                    <span>Blocks 60+ bot patterns across 7 categories</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-zinc-600">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                    <span>Behavioral detection with strict mode</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-zinc-600">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                    <span>Allow search engines, charge everything else</span>
+                  </div>
+                </div>
+                <a 
+                  href="/docs/guides/universal-bot-protection" 
+                  className="inline-flex items-center gap-2 text-zinc-900 font-semibold hover:gap-3 transition-all"
+                >
+                  <span>Learn more</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Code Example */}
+          <div className="mt-12 p-8 rounded-2xl bg-zinc-900 border border-zinc-800">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-2 h-2 rounded-full bg-red-500" />
+              <div className="w-2 h-2 rounded-full bg-yellow-500" />
+              <div className="w-2 h-2 rounded-full bg-green-500" />
+              <span className="ml-2 text-zinc-400 text-sm font-mono">middleware.ts</span>
+            </div>
+            <pre className="text-zinc-100 text-sm font-mono overflow-x-auto">
+{`import { aiCrawlerMiddleware } from 'monad-x402';
+
+export const middleware = aiCrawlerMiddleware({
+  enabled: true,
+  price: '1000000000000000',  // 0.001 MON per page
+  recipientAddress: process.env.PAYMENT_RECIPIENT_ADDRESS!,
+  network: 'testnet'
+});
+
+// When GPTBot crawls your site → You get paid 💰`}
+            </pre>
           </div>
         </div>
 
