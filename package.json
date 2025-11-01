@@ -1,6 +1,6 @@
 {
   "name": "monad-x402",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "HTTP 402 Payment Protocol SDK for Monad - Axios-compatible payment wrapper with automatic network detection and zero fallbacks",
   "author": "Shashwat Raj Singh",
   "license": "MIT",

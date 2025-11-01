@@ -139,7 +139,7 @@ See [Quickstart for Buyers](../getting-started/quickstart-buyers.md) for how to 
 ```json
 {
   "name": "simple-seller",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
