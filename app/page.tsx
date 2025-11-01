@@ -75,7 +75,7 @@ export default function LandingPage() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-zinc-100 to-zinc-50 border border-zinc-200 backdrop-blur-sm">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-zinc-700">HTTP 402 Payment Protocol</span>
+              <span className="text-sm font-medium text-zinc-700">Powered by Monad • 10,000 TPS</span>
             </div>
 
             {/* Headline */}
@@ -89,7 +89,7 @@ export default function LandingPage() {
 
             {/* Tagline */}
             <p className="text-xl md:text-2xl text-zinc-600 max-w-3xl mx-auto leading-relaxed font-light">
-              Zero-config blockchain payments for Next.js. Just add middleware, your APIs are monetized.
+              Lightning-fast blockchain payments on Monad. 1-second finality, 10,000 TPS, and 100x cheaper than Ethereum.
             </p>
 
             {/* CTA Buttons */}
@@ -137,9 +137,9 @@ export default function LandingPage() {
               <div className="w-px h-12 bg-zinc-200" />
               <div className="text-center">
                 <div className="text-3xl font-bold text-zinc-900" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                  &lt;50ms
+                  1s
                 </div>
-                <div className="text-sm text-zinc-500 mt-1">Verification Time</div>
+                <div className="text-sm text-zinc-500 mt-1">Block Finality</div>
               </div>
             </div>
           </div>
@@ -149,10 +149,10 @@ export default function LandingPage() {
         <div className="container mx-auto px-6 py-24 max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-              Why monad-x402?
+              Why Monad?
             </h2>
             <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
-              The fastest way to add blockchain payments to your Next.js APIs
+              The world's fastest EVM blockchain, purpose-built for high-performance applications
             </p>
           </div>
 
@@ -165,10 +165,10 @@ export default function LandingPage() {
                   💻
                 </div>
                 <h3 className="text-xl font-bold text-zinc-900 mb-3" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                  Zero Payment Logic
+                  10,000 TPS
                 </h3>
                 <p className="text-zinc-600 leading-relaxed">
-                  Configure middleware once. Your API routes stay clean—no payment code needed.
+                  Monad processes 10,000 transactions per second with parallel execution. Handle massive scale effortlessly.
                 </p>
               </div>
             </div>
@@ -181,10 +181,10 @@ export default function LandingPage() {
                   ⚡
                 </div>
                 <h3 className="text-xl font-bold text-zinc-900 mb-3" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                  Lightning Fast
+                  1-Second Finality
                 </h3>
                 <p className="text-zinc-600 leading-relaxed">
-                Hundreds of times faster than &lt;  current Ethereum
+                  Instant settlement with 1-second block finality. 100x faster than Ethereum's 12-second blocks.
                 </p>
               </div>
             </div>
@@ -197,10 +197,10 @@ export default function LandingPage() {
                   🛡️
                 </div>
                 <h3 className="text-xl font-bold text-zinc-900 mb-3" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                  x402 Standard
+                  100x Cheaper
                 </h3>
                 <p className="text-zinc-600 leading-relaxed">
-                  Follows Coinbase x402 spec for machine-to-machine micropayments.
+                  Ultra-low gas fees on Monad. Pay pennies for thousands of transactions compared to Ethereum.
                 </p>
               </div>
             </div>
@@ -335,10 +335,10 @@ console.log(result.data);`}
             <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
             <div className="relative text-center">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                Ready to monetize your APIs?
+                Build on the Fastest EVM
               </h2>
               <p className="text-xl text-zinc-300 mb-10 max-w-2xl mx-auto">
-                Join developers building the future of machine-to-machine payments on Monad
+                Join the Monad ecosystem. 10,000 TPS. 1-second finality. 100x cheaper than Ethereum.
               </p>
               <div className="flex items-center justify-center gap-4">
                 <button className="px-8 py-4 bg-white text-zinc-900 rounded-xl font-semibold hover:bg-zinc-100 transition-all duration-200 shadow-xl">
@@ -365,7 +365,7 @@ console.log(result.data);`}
                 </span>
               </div>
               <p className="text-zinc-600 max-w-sm">
-                HTTP 402 Payment Protocol for Monad blockchain. Built for developers who want to monetize APIs without the complexity.
+                Built on Monad - the world's most performant EVM blockchain. Enabling instant, low-cost micropayments for APIs.
               </p>
             </div>
             <div>
