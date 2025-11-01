@@ -372,8 +372,9 @@ console.log(result.data);`}
               <h3 className="font-semibold text-zinc-900 mb-4">Resources</h3>
               <ul className="space-y-2 text-zinc-600">
                 <li><a href="/docs" className="hover:text-zinc-900 transition-colors">Documentation</a></li>
-                <li><a href="/docs/examples" className="hover:text-zinc-900 transition-colors">Examples</a></li>
+                <li><a href="/docs/getting-started" className="hover:text-zinc-900 transition-colors">Getting Started</a></li>
                 <li><a href="/docs/api-reference" className="hover:text-zinc-900 transition-colors">API Reference</a></li>
+                <li><a href="/docs/examples" className="hover:text-zinc-900 transition-colors">Examples</a></li>
               </ul>
             </div>
             <div>
